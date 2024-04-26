@@ -4,7 +4,7 @@ Para este reto se nos solicitaba agregarles excepciones a los retos [1](https://
 
 A continuación se muestran y explican las implementaciones de excepciones en ambos retos. Cabe aclarar que, para practicar el uso de las ramas en Git y no copiar código de un repositorio a otro, se subieron los cambios a una rama denominada ``excepctions`` en ambos repositorios. Sin embargo, en la explicación a continuación se mostrarán los links que facilitarán la localización de cada rama.
 
-## Excepciones en el reto 1
+## Excepciones en el [reto 1](https://github.com/Unbo10/OOP_reto_01/tree/exceptions)
 
 ### [``one.py``](https://github.com/Unbo10/OOP_reto_01/blob/exceptions/one.py)
 
@@ -252,7 +252,7 @@ def user_input_test() -> None:
     print("The words with matching characters in {} are:".format(word_list), find_anagrams(word_list))
 ```
 
-## Excepciones en el reto 5
+## Excepciones en el [reto 5](https://github.com/Unbo10/OOP_reto_05/tree/exceptions)
 
 ### Implementación multipaquete en [``Shape``](https://github.com/Unbo10/OOP_reto_05/tree/exceptions/Shape)
 

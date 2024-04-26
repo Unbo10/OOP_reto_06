@@ -242,6 +242,8 @@ def user_input_test() -> None:
 
 <h3 id = "five"> <code><a href = "https://github.com/Unbo10/OOP_reto_01/blob/exceptions/five.py">five.py</a></code> </h3>
 
+> Objetivo: Defina una función que reciba una lista de cadenas de caracteres y devuelva solo aquellos elementos que contengan los mismos caracteres.
+
 Por un lado, se definió la excepción ``NotWordError`` así:
 
 ```python

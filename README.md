@@ -4,9 +4,32 @@ Para este reto se nos solicitaba agregarles excepciones a los retos [1](https://
 
 A continuación se muestran y explican las implementaciones de excepciones en ambos retos. Cabe aclarar que, para practicar el uso de las ramas en Git y no copiar código de un repositorio a otro, se subieron los cambios a una rama denominada ``excepctions`` en ambos repositorios. Sin embargo, en la explicación a continuación se mostrarán los links que facilitarán la localización de cada rama.
 
-## Excepciones en el [reto 1](https://github.com/Unbo10/OOP_reto_01/tree/exceptions)
+# Tabla de contenido
 
-### [``one.py``](https://github.com/Unbo10/OOP_reto_01/blob/exceptions/one.py)
+- [Reto 1](#reto1)
+  - [``one.py``](#one)
+  - [``two.py``](#two)
+  - [``three.py``](#three)
+  - [``four.py``](#four)
+  - [``five.py``](#five)
+- [Reto 5](#reto5)
+  - [Implementación multipaquete en ``Shape``](#multi)
+    - [``vertex.py``](#vertex)
+    - [``edge.py``](#edge)
+    - [``rectangle.py``](#rectangle)
+    - [``square.py``](#square)
+    - [``triangle.py``](#triangle)
+    - [``equilateral.py``](#equilateral)
+    - [``isosceles.py``](#isosceles)
+    - [``Triangle``/rectang.pyle](#trirectangle)
+    - [``scalene.py``](#scalene)
+    - [``shape.py``](#shape)
+  - [Implementación en módulo único](#AllinOne)
+- [Conclusión](#conclusion)
+
+<h2 id = "reto1"> Excepciones en el <a href = "https://github.com/Unbo10/OOP_reto_01/tree/exceptions">reto 1</a></h2>
+
+<h3 id = "one"> <code><a href = "https://github.com/Unbo10/OOP_reto_01/blob/exceptions/one.py">one.py</a></code> </h3>
 
 > Cree una función que realice operaciónes básicas (suma, resta, multiplicación, división) entre dos números, según la elección del usuario. La entrada de la función serán dos operandos y el caracter a usar para la operación.
 
@@ -77,7 +100,7 @@ if __name__ == "__main__":
         print("Goodbye! 👋", end="")
 ```
 
-### [``two.py``](https://github.com/Unbo10/OOP_reto_01/blob/exceptions/two.py)
+<h3 id = "two"> <code><a href = "https://github.com/Unbo10/OOP_reto_01/blob/exceptions/two.py">two.py</a></code> </h3>
 
 > Objetivo: Crear una función que le permita validar si una palabra es palíndroma. Condición: no puede usar ``slicing`` para revertir la palabra y verificar si es la misma que la original.
 
@@ -178,7 +201,7 @@ def user_input_test() -> None:
     print("The prime numbers in {} are:".format(int_list), filter_primes(int_list))
 ```
 
-### [``four.py``](https://github.com/Unbo10/OOP_reto_01/blob/exceptions/four.py)
+<h3 id = "four"> <code><a href = "https://github.com/Unbo10/OOP_reto_01/blob/exceptions/four.py">four.py</a></code> </h3>
 
 > Objetivo: Crear una función que reciba una lista de enteros y devuelva la mayor suma entre dos elementos consecutivos.
 
@@ -217,7 +240,7 @@ def user_input_test() -> None:
     print("The greatest consecutive sum between two elements in {} is:".format(int_list), find_greatest_consecutive_sum(int_list))
 ```
 
-### [``five.py``](https://github.com/Unbo10/OOP_reto_01/blob/exceptions/five.py)
+<h3 id = "five"> <code><a href = "https://github.com/Unbo10/OOP_reto_01/blob/exceptions/five.py">five.py</a></code> </h3>
 
 Por un lado, se definió la excepción ``NotWordError`` así:
 
@@ -252,9 +275,9 @@ def user_input_test() -> None:
     print("The words with matching characters in {} are:".format(word_list), find_anagrams(word_list))
 ```
 
-## Excepciones en el [reto 5](https://github.com/Unbo10/OOP_reto_05/tree/exceptions)
+<h2 id = "reto5"> Excepciones en el <a href = "https://github.com/Unbo10/OOP_reto_05/tree/exceptions"> reto 5 </a> </h2>
 
-### Implementación multipaquete en [``Shape``](https://github.com/Unbo10/OOP_reto_05/tree/exceptions/Shape)
+<h3 id = "multi"> Implementación multipaquete en <a href = "https://github.com/Unbo10/OOP_reto_05/tree/exceptions/Shape"><code> Shape </code></a> </h3>
 
 Tal como en el reto anterior, si se ejecuta cualquier módulo archivo como script activo se llaman a las funciones ``test_default`` y ``test_user_input`` de las respectivas clases dentro de un bloque ``try-except-finally`` para manejar cualquier ``KeyboardInterrupt`` durante la ejecución:
 
@@ -282,7 +305,7 @@ except ValueError:
    sys.path.append(grandparent_dir)
 ```
 
-#### [``vertex.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Edge/vertex.py)
+<h4 id = "vertex"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Edge/vertex.py"><code>vertex.py</code></a> </h4>
 
 En el módulo vértice se definió el método ``enter_coordinate`` para evitar que el usuario ingresara un valor que no fuese un número real:
 
@@ -301,7 +324,7 @@ def enter_coordinate(coordinate: str) -> float:
 
 Este método se usó en todas las líneas donde el usuario ingresaba coordenadas de vértices de figuras y de lados.
 
-#### [``edge.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Edge/edge.py)
+<h4 id = "edge"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Edge/edge.py"><code>edge.py</code></a> </h4>
 
 El único cambio fue el manejo de cualquier instancia de ``AssertionError`` que indica que se está intentando insertar una coordenada previamente insertada (esto mismo se hizo en todos los demás módulos).
 
@@ -321,7 +344,7 @@ def test_user_input() -> None:
    ...
 ```
 
-#### [``rectangle.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Rectangle/rectangle.py)
+<h4 id = "rectangle"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Rectangle/rectangle.py"><code>rectangle.py</code></a> </h4>
 
 Para el caso del módulo rectángulo fue necesario definir una nueva excepción, ``NotStraightEdgeError``:
 
@@ -401,7 +424,7 @@ def test_user_input() -> None:
 
 La causa de solicitar al usuario ingresar las coordenadas en el sentido de las manecillas del reloj es para facilitar la verificación de la rectitud de los lados. De otro modo, habrían muchos más casos a considerar y el programa se volvería innecesariamente extenso.
 
-#### [``square.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Rectangle/square.py)
+<h4 id = "square"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Rectangle/square.py"><code>square.py</code></a> </h4>
 
 Al igual que en el módulo *rectángulo*, la excepción ``NotSquareSide`` se definió dentro del módulo *cuadrado*:
 
@@ -485,7 +508,7 @@ def test_user_input() -> None:
 
 Análogamente a *rectángulo*, se solicitó al usuario ingresar las coordenadas de los vértices de modo que no se formara una diagonal, es decir, que fuesen colineales los vertices, para facilitar la verificación de la rectitud de los lados.
 
-#### [``triangle.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/triangle.py)
+<h4 id = "triangle"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/triangle.py"><code>triangle.py</code></a> </h4>
 
 Tal como en los dos módulos anteriores, en *triángulo* se definió una nueva excepción:
 
@@ -533,7 +556,7 @@ def test_user_input() -> None:
    ...
 ```
 
-#### [``equilateral.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/equilateral.py#L14)
+<h4 id = "equilateral"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/equilateral.py"><code>equilateral.py</code></a> </h4>
 
 Por otro lado, en el módulo *equilátero* se definió la excepción ``NotEquilateralError`` como hija de ``NotTriangleError``:
 
@@ -588,7 +611,7 @@ def test_user_input() -> None:
 
 Aclarar que las longitudes de los lados se redondean a cuatro para ser comparadas con la misma precisión con la que el usuario ingresó las coordenadas de los vértices.
 
-#### [``isosceles.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/isosceles.py)
+<h4 id = "isosceles"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/isosceles.py"><code>isosceles.py</code></a> </h4>
 
 Tal como en el módulo *equilátero*, una nueva excepción se definió a partir de ``NotTriangleError`` llamada ``NotIsoscelesError``:
 
@@ -640,7 +663,8 @@ def test_user_input() -> None:
    ...
 ```
 
-#### [``Triangle/rectangle.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/isosceles.py)
+<h4 id = "trirectangle"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/rectangle.py"><code>Triangle/rectangle.py</code></a> </h4>
+
 
 Siguiendo el patrón, en el módulo del triángulo rectángulo, la excepción ``NotRightTriangleError`` se definió de la siguiente manera:
 
@@ -699,13 +723,13 @@ def test_user_input() -> None:
    ...
 ```
 
-#### [``scalene.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/scalene.py)
+<h4 id = "scalene"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Triangle/scalene.py"><code>scalene.py</code></a> </h4>
 
 La función ``test_user_input`` del módulo *escaleno* es esencialmente la misma que la del módulo *triángulo* (incluso hereda la misma excepción trabajada en este). Los únicos cambios se encuentran en la sintaxis de las frases a imprimir en consola. Por tanto, no se entrará en detalle sobre lo que se hizo en este módulo.
 
-#### [``shape.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/shape.py)
+<h4 id = "shape"> <a href = "https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/shape.py"><code>shape.py</code></a> </h4>
 
-Este es posiblemente el módulo mejor optimizado, ya que usando excepciones se logró eliminar un método dentro de la clase ``Shape`` (``eliminate_repeated_vertices``) y la forma de detener el ingreso de vértices es mucho más ameno tanto para el usuario como para el programador (usando ``KeyboardInterrupt``). Además, se creó la excepción ``InsufficientVerticesError`` para evitar que el usuario insertara menos de tres vértices (el caso de un triángulo se sobreescribió en la clase ``Triangle`` del módulo ``triangle.py`` usando polimorfismo):
+Este es posiblemente el módulo mejor optimizado, ya que usando excepciones se logró eliminar un método dentro de la clase ``Shape`` ([``eliminate_repeated_vertices``](https://github.com/Unbo10/OOP_reto_05/blob/main/Shape/shape.py#L26)) y la forma de detener el ingreso de vértices es mucho más ameno tanto para el usuario como para el programador (usando ``KeyboardInterrupt``). Además, se creó la excepción ``InsufficientVerticesError`` para evitar que el usuario insertara menos de tres vértices (el caso de un triángulo se sobreescribió en la clase ``Triangle`` del módulo ``triangle.py`` usando polimorfismo):
 
 ```py	
 class InsufficientVerticesError(Exception):
@@ -758,7 +782,7 @@ def test_user_input() -> None:
       print("The inner angles are:", shape1.get_inner_angles())
 ```
 
-### Implementación con módulo único
+<h3 id = "AllinOne"> Implementación en módulo único </h3>
 
 En el módulo [**``AllinOne.py``**](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/AllinOne.py) se copiaron todos los cambios hechos en cada uno de los módulos individuales y se creó además la clase ``Test`` que contiene todas las funciones ``test_user_input``. Estas se pueden llamar con un único método de esta misma clase nombrado ``test_user_input_all``. De este modo, el archivo de prueba de este módulo, [``test_AllinOne.py``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/test_AllinOne.py), se redujo a la importación de la clase ``Test`` y un bloque de excepciones para manejar cualquier ``KeyboardInterrupt`` (tal como se hizo en [``test_multimodules.py``](https://github.com/Unbo10/OOP_reto_05/blame/exceptions/test_multimodules.py)):
 
@@ -775,9 +799,9 @@ if __name__ == "__main__":
       print("Thank you for using the program!", end="")
 ```
 
-## Conclusión
+<h2 id = "conclusion"> Conclusión </h2>
 
-Las excepciones son extremadamente útiles, en especial en un lenguaje como ``Python`` en el que las excepciones son un método ampliamente usado para el control de flujo. Esto se evidenció en todas las implementaciones de manejo de excepciones hechas en este reto y su variedad (definidas por el programador e integradas no-fatales y fatales). Asímismo, junto con la importación de paquetes se observó el poder de la reutilización de buen código (solo hay que remitirse a la función ``enter_coordinate``, presente en todos los módulos archivo).
+Las excepciones son extremadamente útiles, en especial en un lenguaje como Python en el que las excepciones son un método ampliamente usado para el control de flujo. Esto se evidenció en todas las implementaciones de manejo de excepciones hechas en este reto y su variedad (definidas por el programador e integradas no-fatales y fatales). Asímismo, junto con la importación de paquetes se observó el poder de la reutilización de buen código (solo hay que remitirse a la función [``enter_coordinate``](https://github.com/Unbo10/OOP_reto_05/blob/exceptions/Shape/Edge/vertex.py#L18), presente en todos los módulos archivo).
 
 Finalmente, recomendaría a otros programadores investigar más sobre los casos en los que se deben definir excepciones personalizadas, porque si bien facilitan la comprensión del código, personalmente las encontré como una copia de ``Exception`` sin mucho más que el mensaje personalizado. Igualmente, se debe mejorar la definición de las excepciones de manera similar a como se hizo con los módulos de triángulos: heredando.
 
